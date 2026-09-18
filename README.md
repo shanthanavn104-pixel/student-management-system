@@ -255,15 +255,6 @@ B71D45E2...
 ```
 ---
 
-6. Sample Input and Output
-        <img width="1881" height="871" alt="image" src="https://github.com/user-attachments/assets/d1254131-fce3-4ebc-8081-0f7cb04013cf" />
-        <img width="1883" height="865" alt="image" src="https://github.com/user-attachments/assets/cdd9889e-cb87-4477-a3c3-e43a74746df5" />
-        <img width="1886" height="857" alt="image" src="https://github.com/user-attachments/assets/4f92f9b9-e9fe-4e59-b0dc-c4cd87729dff" />
-        <img width="1682" height="687" alt="image" src="https://github.com/user-attachments/assets/98ff00ad-15bd-4c22-9680-d3df95db46d2" />
-        <img width="1691" height="670" alt="image" src="https://github.com/user-attachments/assets/53dfffa5-e95e-472f-ac7a-1da7dcce2391" />
-        <img width="1687" height="810" alt="image" src="https://github.com/user-attachments/assets/aca9536c-28d7-4d62-9449-053b566bf6f9" />
-        <img width="1671" height="497" alt="image" src="https://github.com/user-attachments/assets/8ff6bc9d-2cd4-4f62-865a-c4d58a330ccf" />
-        <img width="1883" height="610" alt="image" src="https://github.com/user-attachments/assets/36e967d3-e98e-4ea4-a81e-5f3e69e63d36" />
 
 
 
