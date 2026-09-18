@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureExam - Question Setter Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: calc(100vh - 110px);
+            background: #f8fafc;
+        }
+        .sidebar {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 24px;
+        }
+        .sidebar h4 { color: white; margin-bottom: 20px; }
+        .sidebar ul { list-style: none; }
+        .sidebar ul li { padding: 12px 0; border-bottom: 1px solid #1e293b; cursor: pointer; transition: color 0.2s; }
+        .sidebar ul li:hover { color: white; }
+        .sidebar ul li.active { color: #3b82f6; font-weight: bold; }
+        .main-content { padding: 40px; }
+        .panel { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 24px; }
+        .btn-action { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-action:hover { background: #1d4ed8; }
+        .status-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #fef3c7; color: #d97706; }
+        .success-badge { background: #dcfce7; color: #15803d; }
+        
+        .view-panel { display: none; }
+        .view-panel.active-view { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">🔐 SecureExam Panel</div>
+        <a href="index.html" class="nav-button" style="background: #dc2626;">Logout</a>
+    </nav>
+
+    <!-- Main Workspace -->
+    <div class="dashboard-layout">
+        
+        <!-- Sidebar Navigation Menu -->
+        <div class="sidebar">
+            <h4>Welcome, shanthana Panel</h4>
+            <ul>
+                <li id="menu-upload" class="active" onclick="switchView('upload')">📤 Upload & Encrypt</li>
+                <li id="menu-schedule" onclick="switchView('schedule')">⏰ Release Schedule</li>
+                <li id="menu-logs" onclick="switchView('logs')">📋 Audit Tracking Logs</li>
+            </ul>
+        </div>
+
+        <!-- Dynamic Working Viewport Area -->
+        <div class="main-content">
+            
+            <!-- VIEW 1: UPLOAD & ENCRYPT SECTION -->
+            <div id="view-upload" class="view-panel active-view">
+                <h2>Question Setter Workspace</h2>
+                <p style="color: #64748b; margin-bottom: 24px;">Secure management architecture pipeline</p>
+
+                <div class="panel">
+                    <h3>1. Upload Question Paper</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; color: #475569;">Select a question document to push into the local buffer storage context.</p>
+                    <input type="file" id="paperFile" style="margin-bottom: 15px; display: block;"><br>
+                    
+                    <!-- Bypassed Button Fix Built Here -->
+                    <button class="btn-action" onclick="document.getElementById('cryptoPanel').style.display = 'block'; alert('File successfully buffered. Ready for core security layer operations.');">Upload Document</button>
+                </div>
+
+                <div class="panel" id="cryptoPanel" style="display: none;">
+                    <h3>2. Cryptographic Controls & Integrity</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; color: #475569;">Apply structural security filters before repository commitment.</p>
+                    <div style="margin-bottom: 12px;">
+                        <strong>Status:</strong> <span id="uploadStatus" class="status-badge">Awaiting Pipeline Action</span>
+                    </div>
+                    <div style="margin-bottom: 15px; font-family: monospace; background: #f1f5f9; padding: 10px; border-radius: 4px; font-size: 13px; display:none;" id="hashDisplay">
+                        <strong>SHA-256 Checksum:</strong> <span id="hashValue"></span>
+                    </div>
+                    <button class="btn-action" style="background: #10b981;" onclick="simulateEncryption()">Encrypt & Generate Integrity Hash</button>
+                </div>
+            </div>
+
+            <!-- VIEW 2: RELEASE SCHEDULE SECTION -->
+            <div id="view-schedule" class="view-panel">
+                <h2>Release Schedule Configuration</h2>
+                <p style="color: #64748b; margin-bottom: 24px;">Define time-lock constraints for automated decryption keys</p>
+                <div class="panel">
+                    <h3>Set Automated Exam Release Time</h3>
+                    <label style="display:block; margin: 15px 0 5px; font-weight:bold;">Select Exam Start Date & Time:</label>
+                    <input type="datetime-local" id="examTime" style="padding:10px; font-size:15px; border:1px solid #cbd5e1; border-radius:6px; margin-bottom:20px;"><br>
+                    <button class="btn-action" onclick="alert('Time lock configured successfully! Decryption keys will be locked down until this exact time.')">Lock Schedule & Deploy Keys</button>
+                </div>
+            </div>
+
+            <!-- VIEW 3: SECURITY LOGS SECTION -->
+            <div id="view-logs" class="view-panel">
+                <h2>Security Audit Tracking Logs</h2>
+                <p style="color: #64748b; margin-bottom: 24px;">Immutable system activity ledger logs</p>
+                <div class="panel">
+                    <table style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
+                        <thead>
+                            <tr style="background:#f1f5f9; border-bottom:2px solid #cbd5e1;">
+                                <th style="padding:12px;">Timestamp</th>
+                                <th style="padding:12px;">User / Node ID</th>
+                                <th style="padding:12px;">Event Description</th>
+                                <th style="padding:12px;">Security Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #e2e8f0;">
+                                <td style="padding:12px; color:#64748b;">06:02:12 AM</td>
+                                <td style="padding:12px;"><strong>shanthana</strong></td>
+                                <td style="padding:12px;">Successful 2FA Login Verification</td>
+                                <td style="padding:12px;"><span style="color:#16a34a; font-weight:bold;">🟢 SUCCESS</span></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #e2e8f0;">
+                                <td style="padding:12px; color:#64748b;">06:03:01 AM</td>
+                                <td style="padding:12px;"><strong>shanthana</strong></td>
+                                <td style="padding:12px;">Uploaded document package to local staging slot</td>
+                                <td style="padding:12px;"><span style="color:#2563eb; font-weight:bold;">🔵 BUFFERED</span></td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #e2e8f0;">
+                                <td style="padding:12px; color:#64748b;">06:03:08 AM</td>
+                                <td style="padding:12px;"><strong>shanthana</strong></td>
+                                <td style="padding:12px;">AES-256 Paper Encryption & SHA-256 Hash Generated</td>
+                                <td style="padding:12px;"><span style="color:#16a34a; font-weight:bold;">🟢 ENCRYPTED</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        Secure Question Paper Management System © 2026
+    </footer>
+
+    <script>
+        function switchView(viewName) {
+            document.querySelectorAll('.view-panel').forEach(view => view.classList.remove('active-view'));
+            document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+            
+            if (viewName === 'upload') {
+                document.getElementById('view-upload').classList.add('active-view');
+                document.getElementById('menu-upload').classList.add('active');
+            } else if (viewName === 'schedule') {
+                document.getElementById('view-schedule').classList.add('active-view');
+                document.getElementById('menu-schedule').classList.add('active');
+            } else if (viewName === 'logs') {
+                document.getElementById('view-logs').classList.add('active-view');
+                document.getElementById('menu-logs').classList.add('active');
+            }
+        }
+
+        function simulateEncryption() {
+            const statusLabel = document.getElementById('uploadStatus');
+            const hashBox = document.getElementById('hashDisplay');
+            const hashText = document.getElementById('hashValue');
+
+            statusLabel.textContent = "AES-256 Encrypted & Vault Verified";
+            statusLabel.className = "status-badge success-badge";
+            hashText.textContent = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+            hashBox.style.display = 'block';
+            alert("Success! The question paper is encrypted and sealed with an integrity tracking signature.");
+        }
+    </script>
+</body>
+</html>

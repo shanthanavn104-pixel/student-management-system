@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Exam - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🔐 SecureExam</div>
+        <a href="index.html" class="nav-button" style="background: #475569;">Back to Home</a>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>System Login</h2>
+            <p class="login-subtitle">Access authorized examination dashboard</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username / Email ID</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-group" id="otpGroup" style="display: none;">
+                    <label for="otp">2-Factor OTP Code</label>
+                    <input type="text" id="otp" placeholder="Enter 6-digit OTP" maxlength="6">
+                    <span class="otp-hint">A security code has been simulated for your session.</span>
+                </div>
+                <div id="errorMessage" class="error-msg" style="display: none;"></div>
+                <button type="submit" id="submitBtn" class="login-submit-btn">Proceed to Verify</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>Secure Question Paper Management System © 2026</footer>
+    <script src="js/auth.js"></script>
+</body>
+</html>
